@@ -1,8 +1,11 @@
 // Copyright (c) 2012 MIT License by 6.172 Staff
 
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdint.h>
+
+#define PRINT_TYPE(type)                                                       \
+  printf("size of %s : %zu bytes \n", #type, sizeof(type));
 
 int main() {
   // Please print the sizes of the following types:
@@ -12,7 +15,23 @@ int main() {
 
   // Here's how to show the size of one type. See if you can define a macro
   // to avoid copy pasting this code.
-  printf("size of %s : %zu bytes \n", "int", sizeof(int));
+  PRINT_TYPE(int);
+  PRINT_TYPE(short);
+  PRINT_TYPE(long);
+  PRINT_TYPE(char);
+  PRINT_TYPE(float);
+  PRINT_TYPE(double);
+  PRINT_TYPE(unsigned int);
+  PRINT_TYPE(long long);
+  PRINT_TYPE(uint8_t);
+  PRINT_TYPE(uint16_t);
+  PRINT_TYPE(uint32_t);
+  PRINT_TYPE(uint64_t);
+  PRINT_TYPE(uint_fast8_t);
+  PRINT_TYPE(uint_fast16_t);
+  PRINT_TYPE(uintmax_t);
+  PRINT_TYPE(int64_t);
+  PRINT_TYPE(__int128);
   // e.g. PRINT_SIZE("int", int);
   //      PRINT_SIZE("short", short);
 
@@ -32,12 +51,12 @@ int main() {
   you.id = 12345;
   you.year = 4;
 
-
   // Array declaration. Use your macro to print the size of this.
   int x[5];
 
   // You can just use your macro here instead: PRINT_SIZE("student", you);
-  printf("size of %s : %zu bytes \n", "student", sizeof(you));
+  PRINT_TYPE(student);
+  PRINT_TYPE(x[5]);
 
   return 0;
 }
