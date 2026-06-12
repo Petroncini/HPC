@@ -92,9 +92,13 @@ int main(int argc, char** argv) {
 
   fprintf(stderr, "Setup\n");
 
-  A = make_matrix(kMatrixSize, kMatrixSize+1);
+  A = make_matrix(kMatrixSize, kMatrixSize);
   B = make_matrix(kMatrixSize, kMatrixSize);
   C = make_matrix(kMatrixSize, kMatrixSize);
+
+  for(int i = 0; i < C->rows; i++) {
+    memset(C->values[i], 0, C->cols * sizeof(int));
+  }
 
   if (use_zero_matrix) {
     for (int i = 0; i < A->rows; i++) {
@@ -149,6 +153,10 @@ int main(int argc, char** argv) {
     double elapsed = tdiff(time1, time2);
     printf("Elapsed execution time: %f sec\n", elapsed);
   }
+
+  free_matrix(A);
+  free_matrix(B);
+  free_matrix(C);
 
   return 0;
 }

@@ -30,8 +30,27 @@ int main() {
   PRINT_TYPE(uint_fast8_t);
   PRINT_TYPE(uint_fast16_t);
   PRINT_TYPE(uintmax_t);
+  PRINT_TYPE(intmax_t);
   PRINT_TYPE(int64_t);
-  PRINT_TYPE(__int128);
+	PRINT_TYPE(__int128);
+	PRINT_TYPE(int *);
+	PRINT_TYPE(short *);
+	PRINT_TYPE(long *);
+	PRINT_TYPE(char *);
+	PRINT_TYPE(float *);
+	PRINT_TYPE(double *);
+	PRINT_TYPE(unsigned int *);
+	PRINT_TYPE(long long *);
+	PRINT_TYPE(uint8_t *);
+	PRINT_TYPE(uint16_t *);
+	PRINT_TYPE(uint32_t *);
+	PRINT_TYPE(uint64_t *);
+	PRINT_TYPE(uint_fast8_t *);
+	PRINT_TYPE(uint_fast16_t *);
+	PRINT_TYPE(uintmax_t *);
+	PRINT_TYPE(intmax_t *);
+	PRINT_TYPE(int64_t *);
+  PRINT_TYPE(__int128 *);
   // e.g. PRINT_SIZE("int", int);
   //      PRINT_SIZE("short", short);
 
@@ -56,7 +75,9 @@ int main() {
 
   // You can just use your macro here instead: PRINT_SIZE("student", you);
   PRINT_TYPE(student);
-  PRINT_TYPE(x[5]);
+  PRINT_TYPE(student *);
+  PRINT_TYPE(x);
+  PRINT_TYPE(&x);
 
   return 0;
 }
